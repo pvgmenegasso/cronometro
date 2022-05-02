@@ -1,0 +1,46 @@
+#!/bin/bash
+
+# Define colors:
+Black="\u001b[30m"
+Red="\u001b[31m"
+Green="\u001b[32m"
+Yellow="\u001b[33m"
+Blue="\u001b[34m"
+Magenta="\u001b[35m"
+Cyan="\u001b[36m"
+BrightRed="\u001b[31;1m"
+BrightGreen="\u001b[32;1m"
+BrightYellow="\u001b[33;1m"
+BrightBlue="\u001b[34;1m"
+BrightMagenta="\u001b[35;1m"
+BrightCyan="\u001b[36;1m"
+White="\u001b[37m"
+Reset="\u001b[0m"
+
+function printRed {
+    printf $2"$Red $1 $Reset"
+}
+
+function printMagenta {
+    printf $2"$Magenta $1 $Reset"
+}
+
+function printBlue {
+    printf $2"$Blue $1 $Reset"
+}
+
+function printGreen {
+    printf $2"$Green $1 $Reset"
+}
+
+function printBrightRed {
+    printf $2"$BrightRed $1 $Reset"
+}
+
+function printBrightBlue {
+    printf $2"$BrightBlue $1 $Reset"
+}
+
+function printBrightGreen {
+    printf $2"$BrightGreen $1 $Reset"
+}

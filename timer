@@ -1,0 +1,36 @@
+#!/bin/bash
+
+source colors
+
+seconds=$2
+minutes=$(($1*60))
+
+if [ -z "$2" ]; then
+    seconds=$((0))
+fi
+
+if [ -z "$1" ]; then
+    printBrightRed "No argument supplied, defaulting to 5 minutes\n"
+    minutes=$((60*5))
+fi
+
+total=$(($minutes+$seconds))
+printBlue "Timer for $1 minutes and $seconds seconds\n"
+
+printMagenta "Total seconds = $total\n"
+
+
+start="$(($(date +%s) + $total))"
+
+function timer {
+    while [ "$start" -ge `date +%s` ]; do
+        time="$(( $start - `date +%s` ))"
+        if [ $time -ge 120 ]; then
+            printBrightGreen "$(date -u -d "@$time" +%H:%M:%S)" "%s\r"
+        else
+            printBrightRed "$(date -u -d "@$time" +%H:%M:%S)" "%s\r"
+        fi
+    done
+}
+
+timer
